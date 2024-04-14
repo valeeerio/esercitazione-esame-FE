@@ -1,14 +1,43 @@
-export default function Registrazione({
-  nome,
-  cognome,
-  email,
-  password,
-  cambiaNome,
-  cambiaCognome,
-  cambiaEmail,
-  cambiaPassword,
-  registrati,
-}) {
+import { useState } from "react";
+
+export default function Registrazione() {
+  const [nome, setNome] = useState();
+  const cambiaNome = (item) => {
+    setNome(item.target.value);
+  };
+
+  const [cognome, setCognome] = useState();
+  const cambiaCognome = (item) => {
+    setCognome(item.target.value);
+  };
+
+  const [email, setEmail] = useState();
+  const cambiaEmail = (item) => {
+    setEmail(item.target.value);
+  };
+
+  const [password, setPassword] = useState();
+  const cambiaPassword = (item) => {
+    setPassword(item.target.value);
+  };
+
+  const registrati = async () => {
+    const url = "http://localhost:8080/utente/registrazioni";
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        id: 1,
+        nome: nome,
+        cognome: cognome,
+        email: email,
+        password: password,
+      }),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    });
+  };
   return (
     <div className="registrazione">
       REGISTRAZIONE
