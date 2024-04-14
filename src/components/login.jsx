@@ -12,7 +12,7 @@ export default function Login() {
   };
 
   const login = async () => {
-    const url = "http://localhost:8080/utente/registrazioni";
+    const url = "http://localhost:8080/utente/login";
 
     fetch(url, {
       method: "POST",
@@ -23,6 +23,9 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
+    }).then((response) => {
+      if (!response.ok) alert("Credenziali non valide");
+      else alert("Login effettuato con successo");
     });
   };
   return (

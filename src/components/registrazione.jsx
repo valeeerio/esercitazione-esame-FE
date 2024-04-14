@@ -36,6 +36,9 @@ export default function Registrazione() {
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
+    }).then((response) => {
+      if (!response.ok) alert("Errore nella registrazione");
+      else alert("Registrazione effettuato con successo");
     });
   };
   return (
