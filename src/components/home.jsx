@@ -1,14 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <div className="home">
       Benvenuto nella pagina.
       <div>
-        Per registrarti scrivi sulla barra di ricerca
-        http://localhost:3000/registrati
-      </div>
-      <div>
-        Per effettuare il login scrivi sulla barra di ricerca
-        http://localhost:3000/login
+        <button type="button" onClick={() => navigate("/registrati")}>
+          REGISTRATI
+        </button>
+        <button type="button" onClick={() => navigate("/login")}>
+          LOGIN
+        </button>
       </div>
     </div>
   );
